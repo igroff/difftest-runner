@@ -15,6 +15,7 @@ function run_tests(){
   TEST_NAME=$2
   for test in $DIR/*;
   do
+    [ "$test" == "$DIR/*" ] && echo "no tests found" ; return
     if [ -d ${test} ]; then
       run_tests ${test} ${TEST_NAME}
     else
