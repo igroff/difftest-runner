@@ -1,0 +1,17 @@
+{
+  "name": "difftest-runner",
+  "version": "0.0.1",
+  "description": "A simple utility to assist in the exeuction of diff based tests. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "http://github.com/intimonkey/difftest-runner.git",
+  "keywords": [
+    "diff",
+    "test",
+    "runner"
+  ],
+  "author": "Ian Groff",
+  "license": "BSD"
+}
