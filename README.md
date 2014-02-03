@@ -84,37 +84,37 @@ is simplified.
 * Initialize the directory you want to have tests in, I find this to be the root 
 of my repository.
 
-    difftest init
+        difftest init
 
-Make a test, currently the template test is nothing more than a stub of a 
+* Make a test, currently the template test is nothing more than a stub of a 
 bash script.   
 
-    difftest create my_first_test
+        difftest create my_first_test
 
-See that the test is really there
+* See that the test is really there
     
-    difftest show tests
+        difftest show tests
 
-Edit the test to make it do something, this relies on the environment variable
+* Edit the test to make it do something, this relies on the environment variable
 ```EDITOR``` being set.
   
-    difftest edit my_first_test
+        difftest edit my_first_test
 
-See that it fails (we haven't defined passing yet!)
+* See that it fails (we haven't defined passing yet!)
   
-    difftest run
+        difftest run
 
-Check the results of the last test run for my\_first\_test
+* Check the results of the last test run for my\_first\_test
 
-    difftest show my_first_test
+        difftest show my_first_test
 
-Tell difftest that the results of the test are good
+* Tell difftest that the results of the test are good
 
-    difftest pass my_first_test
+        difftest pass my_first_test
 
-See what victory looks like!
+* See what victory looks like!
   
-    difftest run
+        difftest run
 
 ### Examples
 Here are some examples of actual tests from somewhere else
