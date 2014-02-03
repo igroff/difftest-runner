@@ -3,14 +3,8 @@
   "version": "0.0.1",
   "description": "A simple utility to assist in the exeuction of diff based tests. ",
   "main": "index.js",
-  "bin": {
-    "difftest": "./bin/difftest",
-    "difftest_default": "./bin/difftest_default",
-    "difftest_init": "./bin/difftest_init",
-    "difftest_pass": "./bin/difftest_pass",
-    "difftest_run": "./bin/difftest_run",
-    "difftest_show": "./bin/difftest_show",
-    "utils": "./bin/utils"
+  "directories": {
+    "bin": "./bin"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

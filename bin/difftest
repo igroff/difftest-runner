@@ -13,7 +13,7 @@
 ### show  - shows the available result for a given test
 ###
 
-MY_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export MY_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source ${MY_DIR}/utils
 
 [ $# -eq 0 ] && show_help ${BASH_SOURCE[0]} && exit 1
@@ -34,6 +34,7 @@ export RESULTS_DIR="${TEST_ROOT}/${RESULTS_DIR_NAME}"
 export EXPECTED_DIR="${TEST_ROOT}/${EXPECTED_DIR_NAME}"
 # this is where the executables that are the tests go
 export TEST_BIN_DIR="${TEST_ROOT}/${TEST_BIN_DIR_NAME}"
+
 
 function getPathForTest(){
   TEST_NAME=$1

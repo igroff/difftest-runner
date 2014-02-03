@@ -15,7 +15,7 @@ function run_tests(){
   TEST_NAME=$2
   for test in $DIR/*;
   do
-    [ "$test" == "$DIR/*" ] && echo "no tests found" ; return
+    [ "$test" == "$DIR/*" ] && echo "no tests found" && return
     if [ -d ${test} ]; then
       run_tests ${test} ${TEST_NAME}
     else
@@ -43,4 +43,5 @@ function run_tests(){
 # we need to be sure we start with no results otherwise we just end up 
 # potentially testing the results of the last run again
 rm -rf  "${RESULTS_DIR}/*"
-run_tests "${TEST_BIN_DIR}" $1
+debug "running test(s) '${1-all}' in ${TEST_BIN_DIR}"
+run_tests ${TEST_BIN_DIR} $1
