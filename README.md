@@ -88,7 +88,8 @@ See that the test is really there
     
     difftest show tests
 
-Edit the test to make it do something
+Edit the test to make it do something, this relies on the environment variable
+```EDITOR``` being set.
   
     difftest edit my_first_test
 
