@@ -75,7 +75,7 @@ of the test.
 make things that vary (like time stamps) fixed so comparison of output
 is simplified.
 
-### So how do I use it
+### So how do I use it?
 
 Install it 
 
