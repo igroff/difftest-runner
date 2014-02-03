@@ -77,7 +77,7 @@ is simplified.
 
 ### So how do I use it
 
-Install it *(not yet published)*
+Install it 
 
     npm install -g difftest-runner
 
