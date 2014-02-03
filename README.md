@@ -116,6 +116,45 @@ See what victory looks like!
   
     difftest run
 
+### Examples
+Here are some examples of actual tests from somewhere else
+
+difftest/tests/non_existant_doc 
+
+    #! /usr/bin/env bash
+    # vi:ft=sh
+    curl -s -w "\n%{http_code}" http://localhost:8080/this/key/shouldnt/exist
+
+```difftest/expected/non_existant_doc```
+
+    {
+      "message": "no document matching key"
+    }
+    200
+
+difftest/tests/delete_doc
+
+    #! /usr/bin/env bash
+    # vi:ft=sh
+    KEY_PATH=`uuidgen`
+    curl -s http://localhost:8080/this/is/a/test/key/${KEY_PATH}
+    curl -s -X PUT http://localhost:8080/this/is/a/test/key/${KEY_PATH} --data '{"name":"pants"}' -H 'Content-Type: application/json'
+    curl -s http://localhost:8080/this/is/a/test/key/${KEY_PATH}
+    curl -s -X DELETE http://localhost:8080/this/is/a/test/key/${KEY_PATH}
+    curl -s http://localhost:8080/this/is/a/test/key/${KEY_PATH}
+
+difftest/results/delete_doc
+
+    {
+      "message": "no document matching key"
+    }{
+      "message": "it's put"
+    }{"name":"pants"}{
+      "message": "deleted"
+    }{
+      "message": "no document matching key"
+    }
+
 ### TODO
 
 * allow for the creation of custom test templates
