@@ -39,7 +39,7 @@ export TEST_BIN_DIR="${TEST_ROOT}/${TEST_BIN_DIR_NAME}"
 
 function getPathForTest(){
   TEST_NAME=$1
-  TEST_PATH="${TEST_BIN_DIR}/${TEST_NAME}"
+  echo ${TEST_BIN_DIR}/${TEST_NAME}
 }
 export -f getPathForTest
 
