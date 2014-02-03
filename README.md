@@ -33,9 +33,9 @@ determine if things are the same as they were when you decided they were 'good'.
 
 ### Things to Know
 
-difftest-runner is distribted (and installed) using npm.  This isn't because
-it's javascript, or uses node, but because npm is easy to use and good at this
-'package and distribute' thing.
+difftest-runner is distribted using npm.  This isn't because it's javascript,
+or uses node because it's not and doesn't, but because npm is easy to use and
+good at this 'package and distribute' thing.
 
 There is a specific directory structure that difftest-runner uses, mostly you
 don't have to care and can just interact with this through the commands provided
