@@ -11,11 +11,13 @@
 ###
 ###
 
-TEST_NAME=$1
-getPathForTest $TEST_NAME
-if [ -e "${TEST_PATH}" ]; then
-  echo "No test found named ${TEST_NAME}"
-  exit $ERR_TEST_NOT_FOUND
+TEST_NAME=${1-You must provide the name of a test}
+RESULTS_PATH=${RESULTS_DIR}/${TEST_NAME}
+EXPECTED_PATH=${EXPECTED_DIR}/${TEST_NAME}
+if [ ! -r "${RESULTS_PATH}" ]; then
+  echo "could find no results for test '${TEST_NAME}'"
+  exit ${ERR_RESULTS_NOT_FOUND}
 fi
 echo "I'll make the test '${TEST_NAME}' pass for you"
+cp "${RESULTS_DIR}/${TEST_NAME}" "${EXPECTED_DIR}/${TEST_NAME}"
 

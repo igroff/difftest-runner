@@ -20,6 +20,7 @@ source ${MY_DIR}/utils
 
 export ERR_NOT_INITIALIZED=1
 export ERR_TEST_NOT_FOUND=2
+export ERR_RESULTS_NOT_FOUND=3
 
 export TEST_ROOT=${TEST_ROOT-`pwd`}/difftest
 export TEST_BIN_DIR_NAME=${TEST_BIN_DIR_NAME-tests}
