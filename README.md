@@ -79,7 +79,7 @@ is simplified.
 
 * Install it 
 
-    npm install -g difftest-runner
+        npm install -g difftest-runner
 
 * Initialize the directory you want to have tests in, I find this to be the root 
 of my repository.
