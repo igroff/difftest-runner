@@ -72,10 +72,42 @@ is simplified.
 
 Install it *(not yet published)*
 
-    npm install difftest-runner
+    npm install -g difftest-runner
 
 Initialize the directory you want to have tests in, I find this to be the root 
 of my repository.
 
     difftest init
 
+Make a test, currently the template test is nothing more than a stub of a 
+bash script.   
+
+    difftest create my_first_test
+
+See that the test is really there
+    
+    difftest show tests
+
+Edit the test to make it do something
+  
+    difftest edit my_first_test
+
+See that it fails (we haven't defined passing yet!)
+  
+    difftest run
+
+Check the results of the last test run for my\_first\_test
+
+    difftest show my_first_test
+
+Tell difftest that the results of the test are good
+
+    difftest pass my_first_test
+
+See what victory looks like!
+  
+    difftest run
+
+### TODO
+
+* allow for the creation of custom test templates
