@@ -125,7 +125,7 @@ difftest/tests/non_existant_doc
     # vi:ft=sh
     curl -s -w "\n%{http_code}" http://localhost:8080/this/key/shouldnt/exist
 
-```difftest/expected/non_existant_doc```
+difftest/expected/non_existant_doc
 
     {
       "message": "no document matching key"
