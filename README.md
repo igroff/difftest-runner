@@ -54,8 +54,9 @@ but it's good to know what the hell al this is:
       |-results
       |-filters
 
-In the example, the root directory is called 'difftest' this is the default
-and is technically able to be changed but who wants to fuss with that.
+In the example, the root directory is called 'difftest' which is the default.
+While it's technically possible to change this, why would we want to have that
+complexity. 
 
 * /difftest/tests - This directory contains the 'scripts' that are run to do
 the 'testing'.  Generally I think of these items as scripts but they simply
@@ -74,6 +75,11 @@ of the test.
 * /difftest/filters - This contains filters to be applied to test output to
 make things that vary (like time stamps) fixed so comparison of output
 is simplified.
+
+difftest-runner doesn't care what your tests do, a big part of this was to create
+something that worked the same regardless of implementation of the 'system under
+test'. The whole point is only that test produce output on stdout and stderr,
+difftest compares that to previous output.
 
 ### So how do I use it?
 
