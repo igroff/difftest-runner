@@ -1,7 +1,19 @@
 # difftest-runner
 
-### So.... What's that?
-I think you'd be hard pressed to find something in Software Engineering that doesn't need or couldn't benefit from some automated testing.  It sucks to make a trivial change to something and not be able to have an equally trivial answer to the question "Well, I wonder if that change broke anything?".  So with that, testing is a must.  
+## And you are....?
+difftest-runner helps run and track the output of test scripts so you can quickly
+determine if things are the same as they were when you decided they were 'good'.
+
+## NOTE!
+I'm not a node app, I use npm for distribution because it's simple and
+straight-forward.  I'm a collection of bash scripts, thus should run most
+anywhere bash does, but that's not been verified in any way. That's not to
+say there's no intention I run elsewhere, just that nothing's been done to
+make it so.
+
+
+### So.... What Now?
+You'd be hard pressed to find something in Software Engineering that doesn't need or couldn't benefit from some automated testing.  It sucks to make a trivial change to something and not be able to have an equally trivial answer to the question "Well, I wonder if that change broke anything?".  So with that, testing is a must.  
 
   Testing, however can be done in a bunch of different ways. The simplest 
 approach to writing a test is pretty straight forward:
@@ -27,9 +39,6 @@ look like what it used to.
 difftest-runner is a series of scripts that aim to make the execution of and collection of the output from a body of tests (scripts) easily repeatable
 such that you can compare future executions to executions deemed 'good'.
 
-#### Or
-difftest-runner helps run and track the output of test scripts so you can quickly
-determine if things are the same as they were when you decided they were 'good'.
 
 ### Things to Know
 
