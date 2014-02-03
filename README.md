@@ -1,6 +1,4 @@
 # difftest-runner
-
-## And you are....?
 difftest-runner helps run and track the output of test scripts so you can quickly
 determine if things are the same as they were when you decided they were 'good'.
 
