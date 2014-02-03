@@ -72,7 +72,7 @@ is simplified.
 
 Install it *(not yet published)*
 
-``` npm install difftest-runner ```
+    npm install difftest-runner
 
 Initialize the directory you want to have tests in, I find this to be the root 
 of my repository.
