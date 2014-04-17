@@ -46,7 +46,7 @@ good at this 'package and distribute' thing.
 
 There is a specific directory structure that difftest-runner uses, mostly you
 don't have to care and can just interact with this through the commands provided
-but it's good to know what the hell al this is:
+but it's good to know what the hell all this is:
 
     difftest 
       |-tests
@@ -56,23 +56,22 @@ but it's good to know what the hell al this is:
 
 In the example, the root directory is called 'difftest' which is the default.
 While it's technically possible to change this, why would we want to have that
-complexity. 
+complexity? 
 
-* /difftest/tests - This directory contains the 'scripts' that are run to do
+* `/difftest/tests` - This directory contains the 'scripts' that are run to do
 the 'testing'.  Generally I think of these items as scripts but they simply
 need to be exec-able, and return some deterministic output to stdout.
 
-* /difftest/expected - This is where the 'good' output of the scripts is stored
-for future comparison.  This directory will contain a like named file for each
-test found in the tests/ directory, which contains the output from the test
-as considered good.
+* `/difftest/expected` - This is where the 'good' output of the scripts is stored
+for future comparison.  Each test in the `tests/` directory should have a corresponding
+file here which contains the output from the test that is considered good.
 
-* /difftest/results - This is where the output of the last run of each test is
-stored.  The directory will contain a like named file for each test that 
-contains the output captured (stdout and stderr) from the most recent run
-of the test.
+* `/difftest/results` - This is where the output of the last run of each test is
+stored.  Each test in the `tests/` directory will create a file in this directory
+containing the captured output from stdout and stderr from the most recent run
+of the tests.
 
-* /difftest/filters - This contains filters to be applied to test output to
+* `/difftest/filters` - This contains filters to be applied to test output to
 make things that vary (like time stamps) fixed so comparison of output
 is simplified.
 
@@ -123,7 +122,7 @@ bash script.
         difftest run
 
 ### Examples
-Here are some examples of actual tests from somewhere else
+Here are some examples of actual tests from somewhere else:
 
 difftest/tests/non_existant_doc 
 
