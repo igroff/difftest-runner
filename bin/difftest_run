@@ -26,6 +26,7 @@ function run_tests(){
       expected_file=${test%tests/*}expected${test#*/tests}
       filter_file=${test%tests/*}filters${test#*/tests}
       mkdir -p `dirname $results_file`
+      echo RUNNING: $test_file
       if [ -f ${filter_file} ]; then
         $test_file | $filter_file > $results_file 2>&1
       else
