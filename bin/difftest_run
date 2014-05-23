@@ -25,12 +25,18 @@ function run_tests(){
       results_file=${test%tests/*}results${test#*/tests}
       expected_file=${test%tests/*}expected${test#*/tests}
       filter_file=${test%tests/*}filters${test#*/tests}
+      default_filter=${test%tests/*}filters/default
       mkdir -p `dirname $results_file`
       echo RUNNING: $test_file
       if [ -f ${filter_file} ]; then
         $test_file | $filter_file > $results_file 2>&1
       else
-        $test_file > $results_file 2>&1
+        if [ -x "${default_filter}" ]
+        then
+          $test_file | $default_filter > $results_file 2>&1
+        else
+          $test_file > $results_file 2>&1
+        fi
       fi
       diff $results_file $expected_file
       if [ $? == 0 ]; then
