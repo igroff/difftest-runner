@@ -73,7 +73,8 @@ of the tests.
 
 * `/difftest/filters` - This contains filters to be applied to test output to
 make things that vary (like time stamps) fixed so comparison of output
-is simplified.
+is simplified.  Oh, and... If you put a filter in here named 'default' and ther is
+no test specific filter, that one (the default) will be used.
 
 difftest-runner doesn't care what your tests do, a big part of this was to create
 something that worked the same regardless of implementation of the 'system under
