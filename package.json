@@ -1,6 +1,6 @@
 {
   "name": "difftest-runner",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple utility to assist in the exeuction of diff based tests. ",
   "directories": {
     "bin": "./bin",

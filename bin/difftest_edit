@@ -5,10 +5,10 @@
 ###
 ### difftest edit
 ###
-### Opens the test provided using the editor rferred to by $EDITOR
+### Opens the test provided using the editor referred to by $EDITOR
 ###
 ###
 
 TEST_NAME=${1?You must provide a test name}
 TEST_PATH=$(getPathForTest ${TEST_NAME})
-$EDITOR ${TEST_PATH}
+${EDITOR?Nothing set for EDITOR in environment} ${TEST_PATH}

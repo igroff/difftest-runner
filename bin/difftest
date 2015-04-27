@@ -36,6 +36,10 @@ export EXPECTED_DIR="${TEST_ROOT}/${EXPECTED_DIR_NAME}"
 # this is where the executables that are the tests go
 export TEST_BIN_DIR="${TEST_ROOT}/${TEST_BIN_DIR_NAME}"
 
+export CONTAINING_DIR_NAME=$(basename $(pwd))
+export TEST_ENVIRONMENT_FILE=~/.${CONTAINING_DIR_NAME}.difftest.env
+[ -r ${TEST_ENVIRONMENT_FILE} ] && source ${TEST_ENVIRONMENT_FILE}
+
 
 function getPathForTest(){
   TEST_NAME=$1
