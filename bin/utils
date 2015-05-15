@@ -115,6 +115,7 @@ process_command(){
          ${FOR_THIS_FILE}_help "$@"
       fi
     else
+      echo "command: ${COMMAND_PATH}"
       show_help "${COMMAND_PATH}"
     fi
     exit -1
