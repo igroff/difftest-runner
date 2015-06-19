@@ -1,10 +1,9 @@
 {
   "name": "difftest-runner",
-  "version": "0.0.6",
+  "version": "0.0.9",
   "description": "A simple utility to assist in the exeuction of diff based tests. ",
   "directories": {
-    "bin": "./bin",
-    "bin/templates": "./bin/templates"
+    "bin": "./bin"
   },
   "repository": "http://github.com/intimonkey/difftest-runner.git",
   "keywords": [
