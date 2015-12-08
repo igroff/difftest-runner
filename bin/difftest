@@ -12,6 +12,13 @@
 ###         passing result.
 ### show  - shows the available result for a given test
 ###
+###   difftest supports reading the environment from a configuration
+### file specific to the directory in which it's run, so for a given
+### directory named my-tests it will look for and use (source) a file
+### ~/.my-tests.difftest.env if present.
+###  The name of the file is specific to the current directory name
+### which can lead to collisions, so keep that in mind. 
+###
 
 export MY_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source ${MY_DIR}/utils
