@@ -11,6 +11,7 @@
 ###
 
 function run_tests(){
+  EXIT_CODE=0
   DIR=$1
   TEST_NAME=$2
   for test in $DIR/*;
@@ -43,6 +44,7 @@ function run_tests(){
         echo SUCCESS: $test_file
       else
         echo FAILED: $test_file
+        EXIT_CODE=1
       fi
     fi
   done
@@ -52,3 +54,4 @@ function run_tests(){
 rm -rf  "${RESULTS_DIR}/*"
 debug "running test(s) '${1-all}' in ${TEST_BIN_DIR}"
 run_tests ${TEST_BIN_DIR} $1
+exit ${EXIT_CODE}
