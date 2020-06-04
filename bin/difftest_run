@@ -11,7 +11,7 @@
 ###
 
 function run_tests(){
-  EXIT_CODE=0
+  failed_tests=0
   DIR=$1
   TEST_NAME=$2
   for test in $DIR/*;
@@ -40,18 +40,19 @@ function run_tests(){
         fi
       fi
       diff $results_file $expected_file
-      if [ $? == 0 ]; then
+      if [ $? -eq 0 ]; then
         echo SUCCESS: $test_file
       else
         echo FAILED: $test_file
-        EXIT_CODE=1
+        failed_tests=$((failed_tests + 1))
       fi
     fi
   done
 }
-# we need to be sure we start with no results otherwise we just end up 
+# we need to be sure we start with no results otherwise we just end up
 # potentially testing the results of the last run again
 rm -rf  "${RESULTS_DIR}/*"
+echo 'phred'
 debug "running test(s) '${1-all}' in ${TEST_BIN_DIR}"
 run_tests ${TEST_BIN_DIR} $1
-exit ${EXIT_CODE}
+exit ${failed_tests}
