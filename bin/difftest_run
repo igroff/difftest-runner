@@ -11,7 +11,7 @@
 ###
 
 function run_tests(){
-  failed_tests=0
+  failed_tests=()
   DIR=$1
   TEST_NAME=$2
   for test in $DIR/*;
@@ -44,7 +44,7 @@ function run_tests(){
         echo SUCCESS: $test_file
       else
         echo FAILED: $test_file
-        failed_tests=$((failed_tests + 1))
+        failed_tests+=($test_file)
       fi
     fi
   done
@@ -55,4 +55,11 @@ rm -rf  "${RESULTS_DIR}/*"
 echo 'phred'
 debug "running test(s) '${1-all}' in ${TEST_BIN_DIR}"
 run_tests ${TEST_BIN_DIR} $1
-exit ${failed_tests}
+if [ "${#failed_tests[@]}" -gt 0 ]; then
+  echo "The following test files failed:"
+  for t in "${failed_tests[@]}"
+  do
+    echo - $t
+  done
+fi
+exit ${#failed_tests[@]}
