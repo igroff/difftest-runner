@@ -10,6 +10,22 @@
 ###
 ###
 
+function report_result(){
+  if [ $1 -eq 0 ]; then
+    if [ "$DIFFTEST_QUIET" = "true" ]; then
+      echo -n .
+    else
+      echo SUCESS: $2
+    fi
+  else
+    if [ "$DIFFTEST_QUIET" = "true" ]; then
+      echo -n x
+    else
+      echo FAILED: $2
+    fi
+  fi
+}
+
 function run_tests(){
   failed_tests=()
   DIR=$1
@@ -28,7 +44,9 @@ function run_tests(){
       filter_file=${test%tests/*}filters${test#*/tests}
       default_filter=${test%tests/*}filters/default
       mkdir -p `dirname $results_file`
-      echo RUNNING: $test_file
+      if [ "$DIFFTEST_QUIET" != "true" ]; then
+        echo RUNNING: $test_file
+      fi
       if [ -f ${filter_file} ]; then
         $test_file | $filter_file > $results_file 2>&1
       else
@@ -39,15 +57,23 @@ function run_tests(){
           $test_file > $results_file 2>&1
         fi
       fi
-      diff $results_file $expected_file
-      if [ $? -eq 0 ]; then
-        echo SUCCESS: $test_file
+      if [ "$DIFFTEST_QUIET" = "true" ]; then
+        redirect=/dev/null
       else
-        echo FAILED: $test_file
+        redirect=/dev/tty
+      fi
+      diff $results_file $expected_file > $redirect
+      outcome=$?
+      report_result $outcome $test_file
+      if [ "$outcome" -ne 0 ]; then
         failed_tests+=($test_file)
       fi
     fi
   done
+
+  if [ "$DIFFTEST_QUIET" = true ]; then
+    echo
+  fi
 }
 # we need to be sure we start with no results otherwise we just end up
 # potentially testing the results of the last run again
@@ -55,7 +81,7 @@ rm -rf  "${RESULTS_DIR}/*"
 debug "running test(s) '${1-all}' in ${TEST_BIN_DIR}"
 run_tests ${TEST_BIN_DIR} $1
 if [ "${#failed_tests[@]}" -gt 0 ]; then
-  echo "The following test files failed:"
+  echo "${#failed_tests[@]} test$([[ "${#failed_tests[@]}" -ne 1 ]] && echo "s") failed:"
   for t in "${failed_tests[@]}"
   do
     echo - $t
