@@ -52,7 +52,6 @@ function run_tests(){
 # we need to be sure we start with no results otherwise we just end up
 # potentially testing the results of the last run again
 rm -rf  "${RESULTS_DIR}/*"
-echo 'phred'
 debug "running test(s) '${1-all}' in ${TEST_BIN_DIR}"
 run_tests ${TEST_BIN_DIR} $1
 if [ "${#failed_tests[@]}" -gt 0 ]; then
