@@ -11,4 +11,6 @@
 ###
 
 TEST_NAME=${1?You must provide the name of a test}
-cat "${RESULTS_DIR}/${TEST_NAME}"
+if [ "$DIFFTEST_QUIET" != "true" ]; then
+  cat "${RESULTS_DIR}/${TEST_NAME}"
+fi
