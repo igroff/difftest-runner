@@ -15,7 +15,7 @@ function report_result(){
     if [ "$DIFFTEST_QUIET" = "true" ]; then
       echo -n .
     else
-      echo SUCESS: $2
+      echo SUCCESS: $2
     fi
   else
     if [ "$DIFFTEST_QUIET" = "true" ]; then
