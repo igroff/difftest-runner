@@ -60,7 +60,7 @@ function run_tests(){
       if [ "$DIFFTEST_QUIET" = "true" ]; then
         redirect=/dev/null
       else
-        redirect=/dev/tty
+        redirect=/dev/stdout
       fi
       diff $results_file $expected_file > $redirect
       outcome=$?
