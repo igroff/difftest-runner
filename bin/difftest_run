@@ -10,18 +10,22 @@
 ###
 ###
 
+NC='\033[0m'              # No Color (reset)
+RED='\033[0;31m'          # Red
+GREEN='\033[0;32m'        # Green
+
 function report_result(){
   if [ $1 -eq 0 ]; then
     if [ "$DIFFTEST_QUIET" = "true" ]; then
       echo -n .
     else
-      echo SUCESS: $2
+      echo -e ${GREEN}SUCCESS: $2 ${NC}
     fi
   else
     if [ "$DIFFTEST_QUIET" = "true" ]; then
       echo -n x
     else
-      echo FAILED: $2
+      echo -e ${RED}FAILED: $2 ${NC}
     fi
   fi
 }
